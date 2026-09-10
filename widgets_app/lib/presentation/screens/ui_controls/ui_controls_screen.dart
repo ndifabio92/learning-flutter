@@ -14,7 +14,7 @@ class UiControlsScreen extends StatelessWidget {
 }
 
 class _UiControlsView extends StatefulWidget {
-  const new({super.key});
+  const new();
 
   @override
   State<_UiControlsView> createState() => _UiControlsViewState();
@@ -47,41 +47,47 @@ class _UiControlsViewState extends State<_UiControlsView> {
           title: const Text('Vehiculo de transporte'),
           subtitle: Text('$selectedTransportation'),
           children: [
-            RadioListTile(
-              title: const Text('By Car'),
-              subtitle: const Text('Subtitle By car'),
-              value: Transportation.car,
+            RadioGroup<Transportation>(
               groupValue: selectedTransportation,
               onChanged: (value) => setState(() {
-                selectedTransportation = Transportation.car;
+                selectedTransportation = value ?? selectedTransportation;
               }),
-            ),
-            RadioListTile(
-              title: const Text('By boat'),
-              subtitle: const Text('Subtitle By boat'),
-              value: Transportation.boat,
-              groupValue: selectedTransportation,
-              onChanged: (value) => setState(() {
-                selectedTransportation = Transportation.boat;
-              }),
-            ),
-            RadioListTile(
-              title: const Text('By submarine'),
-              subtitle: const Text('Subtitle By submarine'),
-              value: Transportation.submarine,
-              groupValue: selectedTransportation,
-              onChanged: (value) => setState(() {
-                selectedTransportation = Transportation.submarine;
-              }),
-            ),
-            RadioListTile(
-              title: const Text('By plane'),
-              subtitle: const Text('Subtitle By plane'),
-              value: Transportation.plane,
-              groupValue: selectedTransportation,
-              onChanged: (value) => setState(() {
-                selectedTransportation = Transportation.plane;
-              }),
+              child: Column(
+                children: [
+                  RadioListTile<Transportation>(
+                    title: const Text('By Car'),
+                    subtitle: const Text('Subtitle By car'),
+                    value: Transportation.car,
+                    onChanged: (value) => setState(() {
+                      selectedTransportation = value ?? selectedTransportation;
+                    }),
+                  ),
+                  RadioListTile<Transportation>(
+                    title: const Text('By boat'),
+                    subtitle: const Text('Subtitle By boat'),
+                    value: Transportation.boat,
+                    onChanged: (value) => setState(() {
+                      selectedTransportation = value ?? selectedTransportation;
+                    }),
+                  ),
+                  RadioListTile<Transportation>(
+                    title: const Text('By submarine'),
+                    subtitle: const Text('Subtitle By submarine'),
+                    value: Transportation.submarine,
+                    onChanged: (value) => setState(() {
+                      selectedTransportation = value ?? selectedTransportation;
+                    }),
+                  ),
+                  RadioListTile<Transportation>(
+                    title: const Text('By plane'),
+                    subtitle: const Text('Subtitle By plane'),
+                    value: Transportation.plane,
+                    onChanged: (value) => setState(() {
+                      selectedTransportation = value ?? selectedTransportation;
+                    }),
+                  ),
+                ],
+              ),
             ),
           ],
         ),

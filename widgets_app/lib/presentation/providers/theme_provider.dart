@@ -7,3 +7,19 @@ final colorListProvider = Provider((_) => colorList);
 final isDarkModeProvider = StateProvider((_) => false);
 
 final selectedColorProvider = StateProvider((_) => 0);
+
+final themeNotifierProvider = StateNotifierProvider<ThemeNotifier, AppTheme>(
+  (_) => ThemeNotifier(),
+);
+
+class ThemeNotifier extends StateNotifier<AppTheme> {
+  ThemeNotifier() : super(AppTheme());
+
+  void toggleDarkMode() {
+    state = state.copyWith(isDarkMode: !state.isDarkMode);
+  }
+
+  void changeColorIndex(int colorIndex) {
+    state = state.copyWith(selectedColor: colorIndex);
+  }
+}

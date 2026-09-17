@@ -1,5 +1,5 @@
-import 'package:cinemapedia/presentation/providers/movies_providers.dart';
-import 'package:cinemapedia/presentation/providers/movies_slideshow_provider.dart';
+import 'package:cinemapedia/presentation/providers/movies/movies_providers.dart';
+import 'package:cinemapedia/presentation/providers/movies/movies_slideshow_provider.dart';
 import 'package:cinemapedia/presentation/widgets/movies/movie_horizontal_listview.dart';
 import 'package:cinemapedia/presentation/widgets/movies/movies_slideshow.dart';
 import 'package:cinemapedia/presentation/widgets/shared/custom_appbar.dart';

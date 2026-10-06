@@ -14,3 +14,5 @@ class CounterIncreased extends CounterEvent {
   @override
   List<Object> get props => [value];
 }
+
+class CounterReset extends CounterEvent {}
